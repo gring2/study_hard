@@ -3,10 +3,8 @@ package modeling;
 /**
  * Created by jinwoopark on 2017. 7. 31..
  */
-public interface Menu {
+public interface IOrder {
 
-//    int price;
-//    String name;
-
-
+// String c_Num
+// IMenu
 }

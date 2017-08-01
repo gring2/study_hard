@@ -1,17 +1,19 @@
 package modeling;
 
+import impl.Menu;
+
 import java.util.Map;
 
 /**
  * Created by jinwoopark on 2017. 7. 31..
  */
-public interface Customer {
+public interface ICustomer {
 //
 //  String c_Num;
 
-    Order makeOrder();
+    IOrder makeOrder(String menu_num);
 
-    void requireList(Barista barista);
+    void requireList(IBarista barista);
 
     int payMoney(Map served);
 
