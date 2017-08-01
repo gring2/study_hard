@@ -1,0 +1,23 @@
+group 'com'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+//    testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+    compile group: 'org.springframework', name: 'spring-core', version: '4.3.9.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context', version: '4.3.9.RELEASE'
+    runtime 'org.springframework:spring-test:4.3.9.RELEASE'
+
+    testCompile group: 'org.springframework', name: 'spring-mock', version: '2.0.8'
+    testCompile group: 'mockobjects', name: 'mockobjects-core', version: '0.09'
+//    compile files('mockobjects-0.07-j1.3-j2ee1.3.jar')
+    testCompile group: 'mockobjects', name: 'mockobjects-jdk1.4-j2ee1.3', version: '0.09'
+}
