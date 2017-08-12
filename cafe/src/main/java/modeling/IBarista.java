@@ -1,5 +1,7 @@
 package modeling;
 
+import impl.Order;
+
 import java.util.Map;
 
 /**
@@ -10,10 +12,10 @@ public interface IBarista {
 //    IMenu[] menulist
 //        Queue orderQueye
 
-    void takeOrder(Map c_order);
+    void takeOrder(Order c_order);
 
 
-    ICoffee makeCoffee(String menu);
-    Map  serving(ICoffee coffee);
-    void getMoney(int money);
+    ICoffee makeCoffee();
+     ICoffee serving(Order coffee);
+    boolean getMoney(int money, String c_Num);
 }

@@ -1,0 +1,126 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CommandTest</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">test</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CommandTest (test)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CommandTest</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/ 10)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package test;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import command.Button;
+<i>4</i>&nbsp;import command.Lamp;
+<i>5</i>&nbsp;import command.LampOffCommand;
+<i>6</i>&nbsp;import command.LampOnCommand;
+<i>7</i>&nbsp;import org.junit.jupiter.api.BeforeAll;
+<i>8</i>&nbsp;import org.junit.jupiter.api.Test;
+<i>9</i>&nbsp;
+<i>10</i>&nbsp;import static org.junit.jupiter.api.Assertions.*;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;/**
+<i>13</i>&nbsp; * Created by jinwoopark on 2017. 8. 11..
+<i>14</i>&nbsp; */
+<b class="fc"><i>15</i>&nbsp;public class CommandTest {</b>
+<i>16</i>&nbsp;    private static Button button;
+<i>17</i>&nbsp;    private static Lamp lamp;
+<i>18</i>&nbsp;    private static LampOnCommand lampOn;
+<i>19</i>&nbsp;    private static LampOffCommand lampOff;
+<i>20</i>&nbsp;    @BeforeAll
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;    public static void makeButton(){
+<b class="fc"><i>23</i>&nbsp;        lamp = new Lamp();</b>
+<b class="fc"><i>24</i>&nbsp;        lampOn = new LampOnCommand(lamp);</b>
+<b class="fc"><i>25</i>&nbsp;        lampOff = new LampOffCommand(lamp);</b>
+<b class="fc"><i>26</i>&nbsp;        button = new Button(lampOn);</b>
+<i>27</i>&nbsp;
+<i>28</i>&nbsp;    }
+<i>29</i>&nbsp;    @Test
+<i>30</i>&nbsp;    public void testTurnOn(){
+<b class="fc"><i>31</i>&nbsp;        button.pressed();</b>
+<b class="fc"><i>32</i>&nbsp;        assertTrue(true);</b>
+<i>33</i>&nbsp;
+<i>34</i>&nbsp;    }
+<i>35</i>&nbsp;    @Test
+<i>36</i>&nbsp;    public void testTurnOff(){
+<b class="fc"><i>37</i>&nbsp;        button.setCommand(lampOff);</b>
+<b class="fc"><i>38</i>&nbsp;        button.pressed();</b>
+<b class="fc"><i>39</i>&nbsp;        assertTrue(true);</b>
+<i>40</i>&nbsp;
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;
+<i>43</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2017-08-11 17:21</div>
+</div>
+</body>
+</html>

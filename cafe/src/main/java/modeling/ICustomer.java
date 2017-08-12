@@ -1,6 +1,7 @@
 package modeling;
 
 import impl.Menu;
+import impl.Order;
 
 import java.util.Map;
 
@@ -11,11 +12,10 @@ public interface ICustomer {
 //
 //  String c_Num;
 
-    IOrder makeOrder(String menu_num);
+    Order makeOrder(String menu_num);
 
-    void requireList(IBarista barista);
 
-    int payMoney(Map served);
+    int payMoney();
 
 
 }

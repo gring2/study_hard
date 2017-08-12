@@ -12,35 +12,30 @@ import java.util.Optional;
  */
 public class Customer implements ICustomer{
     private String c_Num;
+    private Menu menu;
 
     public Customer(String c_Num){
         this.c_Num = c_Num;
     }
-    @Override
-    public IOrder makeOrder(String menuName) throws NullPointerException{
 
-        IOrder order = null;
+    @Override
+    public Order makeOrder(String menuName) throws NullPointerException{
+
+        Order order = null;
         try{
             Menu optional = Menu.valueOf(menuName);
-            order = new Order(optional.name(), this.c_Num);
-
+            order = new Order(optional, this.c_Num);
+            this.menu = optional;
         }catch (Exception e){
             throw new NullPointerException();
-
         }
-
 
         return order;
     }
 
     @Override
-    public void requireList(IBarista barista) {
-
-    }
-
-    @Override
-    public int payMoney(Map served) {
-        return 0;
+    public int payMoney() {
+        return menu.price;
     }
 
     public String getC_Num(){
