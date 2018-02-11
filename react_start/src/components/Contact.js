@@ -6,6 +6,7 @@ import ContactInfo from './ContactInfo'
 import ContactDetails from './ContactDetails'
 import update from 'react-addons-update'
 import ContactCreate from './ContactCreate'
+
 export default class Contact extends React.Component {
 
     constructor(props) {
@@ -38,7 +39,24 @@ export default class Contact extends React.Component {
         this.handleRemove = this.handleRemove.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
     }
+    componentWillMount(){
+        const contactData = localStorage.contactData;
 
+        if(contactData){
+            this.setState({
+                contactData: JSON.parse(contactData)
+            })
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(JSON.stringify(prevState.contactData)
+            != JSON.stringify(this.state.contactData)){
+            localStorage.contactData = JSON.stringify((
+                this.state.contactData
+            ))
+        }
+    }
     handleCreate(contact){
         this.setState({
             contactData: update(this.state.contactData,
@@ -92,7 +110,6 @@ export default class Contact extends React.Component {
             );
             data = data.filter(
                 (contact)=>{
-                    console.log(this.state.keyword);
                     return contact.name.toLowerCase().indexOf(
                         this.state.keyword
                     ) > -1;
