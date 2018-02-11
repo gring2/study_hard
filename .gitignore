@@ -1,7 +1,9 @@
-./.idea/
-*/node_modules/
 .idea/
-*/.DS_Store
-./.DS_Store
-*/*.iml
+**/*.iml
 */out/*
+rmi/src/
+.gitignore
+phplaravel/myProject/.env.example
+phplaravel/myProject/.gitattributes
+.DS_Store
+designpattern/../*.iml
