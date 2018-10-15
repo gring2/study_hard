@@ -1,0 +1,11 @@
+{
+  "name": "study_hard",
+  "version": "1.0.0",
+  "dependencies": {
+    "@vue/cli": "^3.0.5"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/gring2/study_hard.git",
+  "author": "gring2 <pjw6454@hotmail.com>",
+  "license": "MIT"
+}

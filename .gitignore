@@ -7,3 +7,9 @@ phplaravel/myProject/.env.example
 phplaravel/myProject/.gitattributes
 .DS_Store
 designpattern/../*.iml
+vue-start/webpacktest/node_modules
+micro-service
+node_modules
+springInAction
+vue-start
+the_load_to_react
