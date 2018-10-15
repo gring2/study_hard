@@ -1,3 +1,0 @@
-interface Point {
-    z: number;
-}
