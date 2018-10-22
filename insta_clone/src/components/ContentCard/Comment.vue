@@ -1,9 +1,9 @@
 <template>
     <div class="comment-area" style="">
         <div style="width:90%; padding-right:20px">
-            <Input type="textarea" suffix="ios-more" placeholder="Enter text"  
+            <Input type="textarea"  placeholder="Enter text" 
                     wrap="soft"
-                    autosize="true"
+                    :autosize="true"
                     class="commentBox"
             />
         </div>

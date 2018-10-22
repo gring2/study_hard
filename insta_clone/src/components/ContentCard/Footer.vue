@@ -2,7 +2,7 @@
     <div>
       <div class="content-bar">
         <div>
-              <Icon type="ios-heart-outline" size="25"/>
+              <Icon type="ios-heart-outline" size="25" style=""/>
               <Icon type="ios-text-outline" size="25"/>
 
               <Icon type="ios-share-outline" size="25"/>
