@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="{% url 'user_manager:validate' %}" method="post">
+    {% csrf_token %}
+    {{ login_form }}
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>

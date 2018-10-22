@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="{% static 'jquery.min.js' %}"></script>
+
+    <style>
+        #vi{
+            width: 350px;
+            height: 350px;
+        }
+    </style>
+</head>
+
+<body >
+<div>
+    <div>
+        {# 1. BUTTON TO TRIGGER THE ACTION #}
+        <button type="button" class="btn btn-primary js-upload-photos">
+          <span class="glyphicon glyphicon-cloud-upload"></span> Upload photos
+        </button>
+
+        {# 2. FILE INPUT TO BE USED BY THE PLUG-IN #}
+
+
+        <form action="upload/" enctype="multipart/form-data" id="upload-form" method="post" >
+            {% csrf_token %}
+            <input id="inputtedFile" type="file" name="file" value="upload">
+        </form>
+    </div>
+     <video data-dashjs-player id="videoPlayer" controls
+></video>
+      <video data-dashjs-player  src="https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd" controls></video>
+{#      <video data-dashjs-player  src="http://localhost:8989/media/videos/test_UiRVYHF.mp4_folder/h264.mpd" controls></video>#}
+
+    <div id="result">
+    </div>
+</div>
+    <script>
+      {#  (function () {#}
+      {#      var getCookie = function (name) {#}
+      {#      var value = "; " + document.cookie;#}
+      {#      var parts = value.split("; " + name + "=");#}
+      {#      if (parts.length == 2) return parts.pop().split(";").shift();#}
+      {#  };#}
+      {#   var inputtedFile = document.getElementById('inputtedFile')#}
+      {#  var inputForm = document.getElementById('upload-form')#}
+      {#  var httpRequest;#}
+      {#  inputtedFile.addEventListener('change', function (e) {#}
+      {##}
+      {#      inputForm.dispatchEvent(new Event('submit'))#}
+      {#  })#}
+      {#  inputForm.addEventListener('submit', function (e) {#}
+      {#   e.preventDefault()#}
+      {#  var form = e.target#}
+      {#  var data = new FormData(form)#}
+      {##}
+      {# httpRequest = new XMLHttpRequest();#}
+      {##}
+      {#      if (!httpRequest) {#}
+      {#        alert('Giving up :( Cannot create an XMLHTTP instance');#}
+      {#        return false;#}
+      {#      }#}
+      {#      csrftoken = Cookies.get('csrftoken');#}
+      {#      httpRequest.onreadystatechange = alertContents;#}
+      {#      httpRequest.open(form.method, form.action, true)#}
+      {#      httpRequest.setRequestHeader('X-CSRF-Token', csrftoken#}
+      {#      )#}
+      {#      httpRequest.responseType = 'json'#}
+      {#      httpRequest.send(data)#}
+      {#      return false#}
+      {#  })#}
+      {#    function alertContents() {#}
+      {#      if (httpRequest.readyState === XMLHttpRequest.DONE) {#}
+      {#        if (httpRequest.status === 200) {#}
+      {#          var url = httpRequest.response.fileName#}
+      {#          var player = dashjs.MediaPlayer().create();#}
+      {#          player.initialize(document.querySelector("#videoPlayer"), , true);#}
+      {#        } else {#}
+      {#        }#}
+      {#      }#}
+      {#}#}
+      {#  })()#}
+        $(function () {
+            $('.js-upload-photos').click(function () {
+                var form = $('#upload-form')[0];
+                var data = new FormData(form);
+             $.ajax({
+                    type: "POST",
+                    enctype: 'multipart/form-data',
+                    url: data.action,
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    timeout: 600000,
+                    success: function (data) {
+                        var addedList = '<a href="'+data.url+'">' +
+                                data.name
+                            '</a>'
+                        console.log(addedList)
+                        var src = {{ MEDIA_URL }}+data.url
+                   var player = dashjs.MediaPlayer().create();
+                    player.initialize(document.querySelector("#videoPlayer"), src, true);
+
+                        $("#result").append(
+                            addedList
+                        );
+                        $("#btnSubmit").prop("disabled", false);
+
+                    },
+                    error: function (e) {
+
+                        $("#result").text(e.responseText);
+                        console.log("ERROR : ", e);
+                        $("#btnSubmit").prop("disabled", false);
+
+                    }
+
+
+             })
+
+            })
+
+
+        })
+    </script>
+</body>
+</html>
