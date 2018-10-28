@@ -1,16 +1,13 @@
+/* eslint-disable */
 <template>
   <Row style="height: 100%">
-    <Col span=4 style="height: 100%">
-        <img src="../assets/logo.png">
-    </Col>
+    <Col span=4 style="height: 100%"><img src="../assets/logo.png"></Col>
     <Col span=12>
        <Input v-model="keyword" placeholder="Enter keyword..."  clearable/>
     </Col>
     <Col span=2>
         <div>&nbsp;</div>
     </Col>
-
-
     <Col span=2>
       <Icon type="ios-compass-outline" size="40" color="#fff"/>
     </Col>

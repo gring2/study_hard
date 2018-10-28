@@ -4,12 +4,12 @@
               <div style="position: relative; height: 480px">
                   <Content v-for="content in contents"
                   :key="content.key"
-                  style="height: 90%; width:100%; position: absolute;" 
+                  style="height: 90%; width:100%; position: absolute;"
                   :id="content.key"
                   :class="content.class"
 
                   :src="content.src"/>
-                  <div style="bottom: 10px; position: absolute; display: flex;  justify-content: center; width: 100%">                  
+                  <div style="bottom: 10px; position: absolute; display: flex;  justify-content: center; width: 100%">
                     <div  v-for="content in contents"
                       :key="content.key"
                        v-bind:class="[{ active: content.class == 'display' }, 'page']"
