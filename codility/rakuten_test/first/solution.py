@@ -1,4 +1,3 @@
-
 def get_xor_product(small, last):
     if small is last: return small
     diff = last - small
