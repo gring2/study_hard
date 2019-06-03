@@ -1,4 +1,5 @@
 import sys
+from builtins import KeyError
 
 
 class Structure():
