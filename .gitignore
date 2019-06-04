@@ -2,7 +2,6 @@
 **/*.iml
 */out/*
 rmi/src/
-.gitignore
 phplaravel/myProject/.env.example
 phplaravel/myProject/.gitattributes
 .DS_Store
